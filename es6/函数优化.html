@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>函数优化</h1>
+    <script>
+        // 函数参数默认值
+        // 过去写法
+        function add(a,b){
+            b = b||1;
+            return a+b;
+        }
+
+        console.log(add(10));
+
+        // 现在写法
+        function addNew(a,b=1){
+            return a+b;
+        }
+        console.log(add(10));
+
+        // 不定参数
+        function fun(...values){
+            for(let v of values){
+                console.log(v);
+            }
+        }
+        fun(1,2,3,5);
+
+        // 箭头函数
+        let print = function(a,b){
+            let c = a+b;
+            return c*a;
+        }
+        console.log(print(4,2));
+
+        let printNew = (a,b)=>{
+            let c = a+b;
+            return c*a;
+        };
+        console.log(print(4,2));
+    </script>
+</body>
+</html>

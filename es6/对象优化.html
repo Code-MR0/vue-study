@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>对象优化</h1>
+    <script>
+        // Object 新增API
+        const person = {
+            name : "mhw",
+            age : 18,
+            language : ["java","js","python"]
+        }
+        console.log(Object.keys(person));
+        console.log(Object.values(person));
+        console.log(Object.entries(person));
+
+        // 复制对象
+        const target = {a:1};
+        const a = {b:2};
+        const b = {c:3};
+        Object.assign(target,a,b);
+        console.log(target);
+
+        // 声明对象简写
+        const name = "mhw";
+        const age = 18;
+        const person1 = {name,age,
+            eat1: function(food){
+                console.log(this.name+"在吃"+food);
+            },
+            // 使用箭头函数无法使用this
+            eat2: food=>console.log(person1.name+"在吃"+food),
+            eat3(food){
+                console.log(this.name+"在吃"+food);
+            }
+        };
+        console.log(person1);
+        person1.eat1("苹果");
+        person1.eat2("香蕉");
+        person1.eat3("米饭");
+    </script>
+</body>
+</html>

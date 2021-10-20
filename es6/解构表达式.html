@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>解构表达式</h1>
+    <script>
+        // 数组解构
+        let arr  = [1,2,3];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+        let [a,b,c] = arr;
+        console.log(a,b,c);
+
+        // 对象解构
+        const person = {
+            name : "mhw",
+            age : 18,
+            language : ["java","js","python"]
+        }
+        // const name = person.name;
+        // const age = person.age;
+        // const languages = person.language;
+
+        const {name,age,language:languages} = person;
+        console.log(name,age,languages);
+        
+        // 字符
+        let str = "hello.vue";
+        console.log(str.startsWith("hello"));
+        console.log(str.endsWith("vue"));
+        console.log(str.includes("."));
+        
+        // 多行字符串
+        let strs = ` 啦啦啦啦
+           三生三世
+        111`;
+        console.log(strs);
+
+        // 字符串插入变量和表达式
+        function fun(){
+            return "hello";
+        }
+        let info = `name:${person.name},age:${person.age+10},say:${fun()}`;
+        console.log(info);
+
+        
+    </script>
+</body>
+</html>
