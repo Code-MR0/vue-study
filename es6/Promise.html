@@ -5,20 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 </head>
 <body>
     <h1>Promise</h1>
     <script>
         let p = new Promise((resolve,reject)=>{
             $.ajax({
-                
+                url: "student.json",
+                success: function(data){
+                    resolve(data);
+                },
+                error: function(err){
+                    reject(err);
+                }
             })
-            resolve();
-            reject();
         })
         p.then((data)=>{
-
+            console.log(data);
+        }).catch((err)=>{
+            console.log("出现异常",err);
         })
+        // 常常把Promise封装成一个函数，然后进行套娃~~
     </script>
 </body>
 </html>

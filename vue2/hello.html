@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 声明式渲染：{{变量名}}，v-bind：元素 attribute=变量 -->
+    <div id="div1" v-bind:title="message">
+        <h1>{{name}},非常帅</h1>
+    </div>
+    <!-- 绑定式渲染：v-model指定綁定對象 -->
+    <div id="div2">
+        <input type="text" v-model="num">
+        <button v-on:click="add">添加</button>
+        <h1>{{name}},吃{{num}}苹果</h1>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let v1 = new Vue({
+            el: "#div1",
+            data: {
+                name: "mhw",
+                message: '页面加载于 ' + new Date().toLocaleString()
+            }
+        })
+        let v2 = new Vue({
+            el: "#div2",
+            data: {
+                name: "mhw",
+                num: 1
+            },
+            methods: {
+                add() {
+                    this.num++;
+                }
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

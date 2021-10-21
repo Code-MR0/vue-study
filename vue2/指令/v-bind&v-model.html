@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        v-bind:单向绑定标签属性值  缩写 ：attributeName
+        v-model:双向绑定标签属性值
+        {{}}:只能使用在标签里面
+     -->
+    <div id="app1">
+        <input type="text" v-model="link">
+        <br />
+        <a v-bind:href="link">gogogo</a>
+    </div>
+
+    <!-- v-bind对class的增强 -->
+    <!--  v-bind:class="{classname:isactive}"-->
+    <div id="app2">
+        <h1 v-bind:class="{active:isactive,'text-danger':isdanger}">hello v-bind:class</h1>
+        <h1 v-bind:class="classObject">hello v-bind:class</h1>
+    </div>
+
+    <!-- v-bind对style的增强 -->
+    <div id="app3">
+        <h1 v-bind:style="{color:h1color,fontSize:h1size}">hello vue</h1>
+    </div>
+
+    <div id="app4">
+        <input type="text" v-model="name">
+        <input type="checkbox" v-model="fruit" value="苹果">苹果
+        <input type="checkbox" v-model="fruit" value="香蕉">香蕉
+        <input type="checkbox" v-model="fruit" value="牛牛">牛牛
+        <h1>{{name}}吃{{fruit.join(",")}}</h1>
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let app1 = new Vue({
+            el: "#app1",
+            data: {
+                link: "http://baidu.com"
+            }
+        })
+
+        let app2 = new Vue({
+            el: "#app2",
+            data: {
+                isactive: true,
+                isdanger: true,
+                classObject: {
+                    active: true,
+                    'text-danger': false
+                }
+            }
+        })
+
+        let app3 = new Vue({
+            el: "#app3",
+            data: {
+                h1color: "red",
+                h1size: "36px"
+            }
+        })
+
+        let app4 = new Vue({
+            el: "#app4",
+            data: {
+                name: "mk",
+                fruit: []
+            }
+        })
+    </script>
+</body>
+
+</html>
